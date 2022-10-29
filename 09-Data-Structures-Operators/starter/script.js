@@ -26,4 +26,130 @@ const restaurant = {
       close: 24,
     },
   },
+
+  orderPizza: function (mainIngredient, ...restIngredient) {
+    console.log(mainIngredient, restIngredient);
+  },
 };
+
+// const { name, categories, openingHours } = restaurant;
+// console.log(name, openingHours, categories);
+
+// const {
+//   fri,
+//   fri: { open: sohan, close: anika },
+// } = openingHours;
+// console.log(fri, sohan, anika);
+
+const arr = [1, 2, 3, 4, 5];
+const newArr = [6, 7, ...arr];
+// console.log(arr, newArr);
+const [a, b, ...rest] = arr;
+// console.log(a, b, rest);
+const { sat, ...restDays } = { ...restaurant.openingHours };
+// console.log(sat, restDays);
+
+function add(...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  // console.log(sum);
+}
+
+add(2, 4, 6);
+add(1, 3, 5, 7, 9);
+add(1, 2, 3, 4, 5, 6, 7);
+
+const x = [1, 2, 3, 4, 5];
+add(...x);
+
+// restaurant.orderPizza('mushrooms', 'spinach', 'onion');
+
+//short circuiting
+// console.log(3 || 'Sohan');
+// console.log(undefined || 'sohan');
+// console.log('' || 'sohan');
+// console.log(0 || 'sohan');
+// console.log(null || 'sohan');
+// console.log(true || 'sohan');
+// console.log(NaN || 'sohan');
+
+// const guest = 0;
+// console.log(guest || 10);
+// console.log(restaurant.guest ?? 10);
+
+//todo challenge no 01
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//1
+const [player1, player2] = game.players;
+console.log(player1, player2);
+
+//2
+const [gk, ...players] = player1;
+console.log(gk, players);
+
+//3
+const allPlayers = [...player1, ...player2];
+console.log(allPlayers);
+
+//4
+const finalPlayers = [...player1, 'Thiago', 'Countinho', 'Perisic'];
+console.log(finalPlayers);
+
+//5
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+
+console.log(team1, draw, team2);
+
+//6
+const printGoals = function (...players) {
+  console.log(players);
+  console.log(`${players.length} goals were scored`);
+};
+printGoals(...game.scored);
+
+// 7.
+team1 < team2 && console.log('Team 1 is more likely to win');
+team1 > team2 && console.log('Team 2 is more likely to win');
