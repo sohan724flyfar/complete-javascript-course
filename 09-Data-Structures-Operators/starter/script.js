@@ -173,3 +173,30 @@
 
 // const [x = 1, y = 1, z = 1] = [4, 2];
 // // console.log(x, y, z);
+// console.log('mynameissooooohan'.replaceAll('o', ''));
+
+const name = 'jahidul islam';
+const [firstName, lastName] = name.split(' ');
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const nameUpper = [];
+  for (const n of names) {
+    // nameUpper.push(n[0].toUpperCase() + n.slice(1));
+    nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(nameUpper.join(' '));
+};
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('jessica ann smith davis');
+
+//padding
+// const message = 'Fly Far International';
+// const shortMessage = message.slice(message.lastIndexOf(' ') + 1);
+// console.log(shortMessage.padStart(message.length, '*'));
+// console.log(shortMessage.padEnd(message.length, '*'));
+
+// repeat
